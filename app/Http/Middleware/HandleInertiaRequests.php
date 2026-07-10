@@ -48,7 +48,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'spaces' => $request->user()
                 ? Space::query()
-                    ->select('id', 'name', 'slug')
+                    ->select('id', 'name', 'slug', 'description', 'created_at', 'updated_at')
                     ->with(['pages' => function ($query) {
                         $query->select('id', 'space_id', 'parent_id', 'title', 'slug', 'position')
                             ->orderBy('position');

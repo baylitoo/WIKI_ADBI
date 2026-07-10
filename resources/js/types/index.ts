@@ -34,7 +34,6 @@ export interface Space {
     name: string;
     slug: string;
     description: string | null;
-    pages_count?: number;
     created_at: string;
     updated_at: string;
 }
@@ -66,6 +65,14 @@ export interface Page {
     current_version?: PageVersion;
     children?: Page[];
     creator?: User;
+}
+
+export interface RecentPage {
+    id: number;
+    space_id: number;
+    title: string;
+    updated_at: string;
+    space?: Pick<Space, 'id' | 'name'>;
 }
 
 export interface PageVersion {

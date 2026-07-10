@@ -4,14 +4,15 @@ import { ResultLine } from '@/components/patterns/result-line';
 import { Toolbar } from '@/components/patterns/toolbar';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem, type Space } from '@/types';
-import { Head, Link } from '@inertiajs/react';
+import { type BreadcrumbItem, type SharedData } from '@/types';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { Plus } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [{ title: 'Spaces', href: '/spaces' }];
 
-export default function SpacesIndex({ spaces }: { spaces: Space[] }) {
+export default function SpacesIndex() {
+    const { spaces } = usePage<SharedData>().props;
     const [search, setSearch] = useState('');
 
     const filtered = useMemo(
@@ -75,7 +76,7 @@ export default function SpacesIndex({ spaces }: { spaces: Space[] }) {
                                             </Link>
                                         </td>
                                         <td className="max-w-xs truncate px-4 py-2.5 text-muted-foreground">{space.description ?? '—'}</td>
-                                        <td className="px-4 py-2.5 font-mono tabular-nums text-muted-foreground">{space.pages_count ?? 0}</td>
+                                        <td className="px-4 py-2.5 font-mono tabular-nums text-muted-foreground">{space.pages.length}</td>
                                         <td className="px-4 py-2.5 text-muted-foreground">{new Date(space.updated_at).toLocaleDateString()}</td>
                                     </tr>
                                 ))}

@@ -39,8 +39,6 @@ class SpaceController extends Controller
 
     public function show(Space $space): Response
     {
-        $space->load(['rootPages']);
-
         return Inertia::render('wiki/spaces/show', [
             'space' => $space,
         ]);
