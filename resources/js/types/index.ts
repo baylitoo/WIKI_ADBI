@@ -67,6 +67,22 @@ export interface Page {
     creator?: User;
 }
 
+export interface TrashedPage {
+    id: number;
+    space_id: number;
+    parent_id: number | null;
+    title: string;
+    deleted_at: string;
+    space?: Pick<Space, 'id' | 'name'>;
+}
+
+export interface SearchResult {
+    id: number;
+    title: string;
+    space?: Pick<Space, 'id' | 'name'>;
+    snippet: string;
+}
+
 export interface RecentPage {
     id: number;
     space_id: number;

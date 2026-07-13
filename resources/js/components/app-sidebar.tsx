@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { LayoutGrid, Library } from 'lucide-react';
+import { LayoutGrid, Library, Search, Trash2 } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -17,6 +17,16 @@ const mainNavItems: NavItem[] = [
         title: 'All spaces',
         url: '/spaces',
         icon: Library,
+    },
+    {
+        title: 'Search',
+        url: '/search',
+        icon: Search,
+    },
+    {
+        title: 'Trash',
+        url: '/trash',
+        icon: Trash2,
     },
 ];
 
